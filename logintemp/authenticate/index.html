@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login page</title>
+    <style>
+        h2{
+        text-align: center;
+        color: red;
+        font-family: arial,sans-serif;
+        font-size: 40px;
+        background-color: #99c6ed}
+
+        .image{
+        float:right;}
+
+        .idui{
+        float: right;
+        padding-top:60px}
+
+        .idui2{
+        float: right;
+        padding-top:10px
+        padding-right:10px}
+
+        .container{
+        background-color: #36e21b;
+        height:40px;
+        width:200px}
+
+    </style>
+</head>
+<body>
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message:</strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times</span>
+        </button>
+    </div>
+    {% endfor %}
+
+    <div>
+        <img src="{% static 'logincre/images/prepnlearn.png' %}" alt="PREPNLEARN" width="30%">
+        {% if user.is_authenticated %}
+        <div class="idui2">
+            <h3>Hello {{ fname }}</h3>
+            <button type="button" class="container"><a href="/signout" style="text-decoration: none">LOG OUT</a></button>
+        </div>
+
+        {% else %}
+        <div class="idui">
+            <button type="button" class="container"> <a href="/signin" style="text-decoration: none">LOGIN AS STUDENT></a></button>
+            <button type="button" class="container">LOGIN AS COACHING</button>
+        </div>
+        {% endif %}
+    </div>
+    <h2>WELCOME TO PREPNLEARN</h2>
+
+
+    <div >
+        <img src="{% static 'logincre/images/teacher1.jfif' %}" alt="PREPNLEARN PIC1" height = "150px" width="620px">
+        <img class = "image" src="{% static 'logincre/images/teacher2.jfif' %}" alt="PREPNLEARN PIC2" height = "150px" width="620px">
+        <img src="{% static 'logincre/images/teacher3.jfif' %}" alt="PREPNLEARN PIC3" height = "150px" style = "padding-top: 20px" width="620px">
+        <img class = "image" src="{% static 'logincre/images/teacher4.jfif' %}" alt="PREPNLEARN PIC4" height = "150px" style = "padding-top: 20px" width="620px">
+    </div>
+
+</body>
+</html>

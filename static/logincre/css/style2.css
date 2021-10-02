@@ -1,0 +1,37 @@
+#formid{
+margin: 0px 300px;
+border: 3px solid #f1f1f1;
+height: 500px;
+background-color:#f6fafb}
+
+.img{
+text-align: center;
+height:20%;}
+
+#createaccount{
+margin: 20px 0px 15px 0px;
+font-family: arial,sans-serif;
+font-size:30px}
+
+input[type=text], input[type=password], input[type=email] {
+width:95%;
+padding:5px 8px;
+margin:4px 0px}
+
+#mark{
+margin-left:20px}
+
+.mark1{
+padding:10px 0px;
+font-size:20px}
+
+.btn{
+margin:15px 0px;
+text-align:center;
+}
+
+.btn2{
+background-color:#dd6053;
+height:30px;
+width:100px;
+border:none;}

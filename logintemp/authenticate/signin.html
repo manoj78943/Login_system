@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>USER</title>
+    <link rel ="stylesheet" type="text/css" href = "{% static 'logincre/css/style.css' %}">
+</head>
+<body>
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      <strong>Message:</strong> {{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  {% endfor %}
+  <div>
+    <img src="{% static 'logincre/images/prepnlearn.png' %}" alt="PREPNLEARN" width="30%">
+    <div class="bothbtn">
+      <button type="button" class="newbtn"><a id="anchor" href="/newuser" style="text-decoration: none">NEW USER</a></button>
+      <button type="button" class="newbtn1"><a id="anchor1" href="/guest" style="text-decoration: none">CONTINUE AS GUEST</a></button>
+    </div>
+  </div>
+
+
+  <form action="/signin" method="post">
+    {% csrf_token %}
+    <div class="imgcontainer">
+      <img src="{% static 'logincre/images/login.jfif' %}" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="username"><b>Username</b></label>
+      <input type="text" name="username" placeholder="Enter Username" id="username" required>
+
+      <label for="pass1"><b>Password</b></label>
+      <input type="password" name="pass1" placeholder="Enter Password" id="pass1" required>
+
+      <button type="submit" class="loginbtn">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="cancelbtn"><a href="/signin" style="text-decoration: none">Cancel</a></button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</body>
+</html>
