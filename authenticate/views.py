@@ -16,13 +16,14 @@ def newuser(request):
         pass2 = request.POST['pass2']
 
         if User.objects.filter(username=username):
-            messages.error(request,"Username already exist! Please try some other username")
+            messages.error(request, "Username already exist! Please try some other username")
             return redirect('newuser')
         if User.objects.filter(email=email):
-            messages.error(request,"Email already exist! Please try some other Email")
+            messages.error(request, "Email already exist! Please try some other Email")
             return redirect('newuser')
         if pass1 != pass2:
             messages.error(request, "Passwords didn't matched")
+            return redirect('newuser')
 
 
         myuser = User.objects.create_user(username, email, pass1)
